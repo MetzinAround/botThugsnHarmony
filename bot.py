@@ -3,7 +3,8 @@
 import discord
 import config as conf
 import schedule as sched
-import time
+from datetime import date
+
 
 
 intents = discord.Intents.default()
@@ -29,14 +30,19 @@ async def on_message(message):
         await message.channel.send("What you gonna do?   https://youtu.be/VMYAEHE2GrM?t=52")
         return
 
-async def bone_message():
-    if date.today().day != 1:
+#Commented out until I can further work on it. 
+"""
+@client.event
+async def bone_message(message):
+    if date.today().day != 21:
         return
     else:    
         print("It's the first of the Month...")
         message.channel.send("It's the first of the mooooonth... https://youtu.be/4j_cOsgRY7w?t=9")
         return
 
+# sched.every().day.at("14:17").do(bone_message)
+"""
 
-sched.every().day.at("11:00").do(bone_message)
+
 client.run(conf.secret_token)
